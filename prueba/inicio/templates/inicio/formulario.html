@@ -1,0 +1,89 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Formulario{% endblock %}
+
+
+
+{% block sider_title %}formulario{% endblock %}
+<!-- Encabezado de la página -->
+    {% block page_title %}
+<div>
+<h3>Formulario de Registro
+    <small>llena tus datos </small>
+</h3>
+</div>
+{% endblock %}
+
+
+{% block ruta_imagen %}<img src="{% static 'inicio/images/formulario.png' %}" alt="formulario">{% endblock %}
+
+{% block contenido %}
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">
+                    Matrícula:
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="matricula">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">
+                    Nombre:
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nombre">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">
+                    Carrera:
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="carrera">
+                        <option value="">Seleccione una carrera</option>
+                        <option value="TIC">TIC</option>
+                        <option value="BIO">BIO</option>
+                        <option value="MAI">MAI</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">
+                    Turno:
+                </label>
+                <div class="col-sm-10">
+                    <label>
+                        <input type="radio" name="turno" value="Matutino" checked>
+                        Matutino
+                    </label>
+
+                    &nbsp;&nbsp;&nbsp;
+
+                    <label>
+                        <input type="radio" name="turno" value="Vespertino">
+                        Vespertino
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-actions text-right">
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}
