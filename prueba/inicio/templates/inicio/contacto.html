@@ -1,0 +1,65 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Contacto{% endblock %}
+
+{% block sider_title %}contacto{% endblock %}
+
+{% block ruta_imagen %}<img src="{% static 'inicio/images/contacto.png' %}" alt="contacto">{% endblock %}
+
+{% block page_title %}
+<div>
+<h3>Contacto
+    <small>Envíanos tu mensaje</small>
+</h3>
+</div>
+
+{% endblock %}
+
+
+
+
+
+{% block contenido %}
+<form class="form-horizontal" action="#" role="form">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">Nombre:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nombre" required>
+                </div>
+            </div>
+            
+            
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">Teléfono:</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control" name="telefono">
+                </div>
+            </div>
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label text-right">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">Mensaje:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="mensaje" rows="5" required></textarea>
+                </div>
+            </div>
+            
+            <div class="form-actions text-right">
+                <input type="submit" value="Enviar" class="btn btn-primary">
+            </div>
+
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+{% block titulo %} Consultar Comentarios {% endblock %}
+
+{% block barra_titulo %}Consultar Comentarios {% endblock %}
+
+{% block encabezado %} 
+    <div class="page-header">
+        <div class="page-title">
+            <h3>COMENTARIOS <br>
+            <small>Lista de Comentarios</small></h3>
+        </div>
+    </div>
+{% endblock %}
+
+{% block contenido %}
+    <div class="well well-sm">
+        <p>Principal / consultarComentario /</p>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;"><strong>Usuario</strong></th>
+                        <th style="width: 50%;"><strong>Mensaje</strong></th>
+                        <th style="width: 15%;"></th>
+                        <th style="width: 15%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comentario in comentarios %}
+                    <tr>
+                        <td>{{ comentario.usuario }}</td>
+                        <td>{{ comentario.mensaje }}</td>
+                        <td class="text-center"><a href="{% url 'editarComentario' comentario.id %}" class="btn btn-xs btn-primary">Editar</a></td>
+                        <td class="text-center"><a href="{% url 'eliminarComentario' comentario.id %}" class="btn btn-xs btn-danger">Eliminar</a></td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">No hay comentarios registrados actualmente.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
