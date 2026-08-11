@@ -1,32 +1,51 @@
 {% extends "inicio/encabezado.html" %}
+{% load static %}
+{% block titulo %} Principal {% endblock %}
 
-{%block titulo%}Principal{% endblock %}
+{% block ruta_imagen %}<img src="{% static 'inicio/images/home.png' %}" alt="Inicio">{% endblock %}
+{% block sider_title %}Principal{% endblock %}
+
+{% block page_header_title %}
+            Alumnos <small>Lista de Alumnos</small>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="active">Lista de Alumnos</li>
+	{% endblock %}
 
 {% block contenido %}
-
 <!-- Contenido Principal-->
-	 	<!-- Tabla de Alumnos -->
-		 <table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Foto</th>
-					<th>Matricula</th>
-					<th>Nombre</th>
-					<th>Carrera</th>
-					<th>Turno</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="text-center">
-						<img src="" alt="" class="img-media">
-					</td>
-					<td class="text-semibold">UTM1234TIC</td>
-					<td class="muted">Nathalia</td>
-					<td class="muted">TIC</td>
-					<td class="muted">Matutino</td>
-				</tr>
-		 </table>
-
-		<!-- /Contenido Principal-->
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Foto</th>
+			<th>Nombre</th>
+			<th>Matricula</th>
+			<th>Carrera</th>
+			<th>Turno</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for alumno in alumnos %}
+		<tr>
+			<td class="text-center">
+				{% if alumno.imagen %}
+					<img src="{{ alumno.imagen.url }}" alt="{{ alumno.nombre }}" class="img-media">
+				{% else %}
+					<img src="{% static 'inicio/images/default.png' %}" alt="Sin foto" class="img-media">
+				{% endif %}
+			</td>
+			<td class="text-semibold">{{ alumno.matricula }}</td>
+			<td class="muted">{{ alumno.nombre }}</td>
+			<td class="muted">{{ alumno.carrera }}</td>
+			<td class="muted">{{ alumno.turno }}</td>
+		</tr>
+		{% empty %}
+		<tr>
+			<td colspan="5" class="text-center">No hay alumnos registrados.</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<!-- /Contenido Principal-->
 {% endblock %}
