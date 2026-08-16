@@ -1,2 +1,2 @@
-# django-proyecto
+# proyeco-django
 repositorio para cursos
